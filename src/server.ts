@@ -1,9 +1,5 @@
-console.log('EXUCUTED')
+// Architectural pattern: MVC, Dependency Injection, MVP
+// MVC = MODEL VIEW CONTROLLER
 
-import moment from 'moment'
-
-const currentTime = moment().format('YYYY MM DD')
-console.log(currentTime)
-
-const person: string = 'Martin'
-const count: number = 100
+console.log('EXECUTING SERVER...')
+// Design pattern: Middleware, Decorator
