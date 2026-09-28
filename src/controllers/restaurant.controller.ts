@@ -31,4 +31,22 @@ restauntController.getSignup = (req: Request, res: Response) => {
 	}
 }
 
+restauntController.processLogin = (req: Request, res: Response) => {
+	try {
+		console.log('process Login')
+		res.send('Done')
+	} catch (err) {
+		console.log('Error, processLogin:', err)
+	}
+}
+
+restauntController.processSignup = (req: Request, res: Response) => {
+	try {
+		console.log('process Signup')
+		res.send('DONE')
+	} catch (err) {
+		console.log('Error, processSignup:', err)
+	}
+}
+
 export default restauntController
