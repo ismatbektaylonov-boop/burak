@@ -1,3 +1,13 @@
+/* Project Standards:
+ - Logging standards
+ - Naming standards:
+    function, method, variable => CAMEL
+    class => PASCAL
+    folder => KEBAB
+    css => SNAKE
+ - Error handling
+*/
+
 /*
 TASK N:
 
@@ -5,21 +15,21 @@ Shunday function yozing, u string qabul qilsin va string palindrom yani togri oq
 
 MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false; 
 */
-function palindromCheck(str: string): boolean {
-	const a: string = str.slice(0, str.length)
-	const b: string = a.split('').reverse().join('')
+// function palindromCheck(str: string): boolean {
+// 	const a: string = str.slice(0, str.length)
+// 	const b: string = a.split('').reverse().join('')
 
-	// console.log(a, b);
+// 	// console.log(a, b);
 
-	if (a === b) {
-		return true
-	} else {
-		return false
-	}
-}
+// 	if (a === b) {
+// 		return true
+// 	} else {
+// 		return false
+// 	}
+// }
 
-console.log(palindromCheck('dad')) // true
-console.log(palindromCheck('son')) // false
+// console.log(palindromCheck('dad')) // true
+// console.log(palindromCheck('son')) // false
 
 // function palindromCheck(str: string): boolean {
 //   const reversedStr: string = str.split("").reverse().join("");
