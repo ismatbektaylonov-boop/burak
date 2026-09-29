@@ -7,6 +7,12 @@
     css => SNAKE
  - Error handling
 */
+/*
+Traditional API
+Rest API
+GraphQL API
+...
+*/
 
 /*
 TASK N:
