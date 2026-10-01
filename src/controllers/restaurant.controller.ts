@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { MemberType } from '../libs/enums/member.enum'
 import { T } from '../libs/types/common'
-import { MemberInput } from '../libs/types/member'
+import { LoginInput, MemberInput } from '../libs/types/member'
 import MemberService from '../models/Member.service'
 
 const restauntController: T = {}
@@ -33,12 +33,19 @@ restauntController.getSignup = (req: Request, res: Response) => {
 	}
 }
 
-restauntController.processLogin = (req: Request, res: Response) => {
+restauntController.processLogin = async (req: Request, res: Response) => {
 	try {
 		console.log('process Login')
-		res.send('Done')
+		console.log('body:', req.body)
+		const input: LoginInput = req.body
+
+		const memberService = new MemberService()
+		const result = await memberService.processLogin(input)
+
+		res.send(result)
 	} catch (err) {
 		console.log('Error, processLogin:', err)
+		console.log(err)
 	}
 }
 
