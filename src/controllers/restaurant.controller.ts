@@ -45,7 +45,7 @@ restauntController.processLogin = async (req: Request, res: Response) => {
 		res.send(result)
 	} catch (err) {
 		console.log('Error, processLogin:', err)
-		console.log(err)
+		res.send(err)
 	}
 }
 
@@ -63,7 +63,7 @@ restauntController.processSignup = async (req: Request, res: Response) => {
 		res.send(result)
 	} catch (err) {
 		console.log('Error, processSignup:', err)
-		console.log(err)
+		res.send(err)
 	}
 }
 
