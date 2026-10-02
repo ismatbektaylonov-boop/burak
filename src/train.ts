@@ -1,3 +1,8 @@
+/** 
+ Traditional FD => BSSR(Adminka) => EJS
+ Modern FD 			=> SPA(user) => React
+ */
+
 /*TASK P:
 
 Parametr sifatida yagona object qabul qiladigan function yozing.
@@ -5,14 +10,14 @@ Qabul qilingan objectni nested array sifatida convert qilib qaytarsin
 
 MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
 */
-function objectToArray(obj: any) {
-	let result: any[] = []
-	for (let key in obj) {
-		result.push([key, obj[key]])
-	}
-	return result
-}
-console.log(objectToArray({ a: 10, b: 20 }))
+// function objectToArray(obj: any) {
+// 	let result: any[] = []
+// 	for (let key in obj) {
+// 		result.push([key, obj[key]])
+// 	}
+// 	return result
+// }
+// console.log(objectToArray({ a: 10, b: 20 }))
 
 /*TASK O:
 

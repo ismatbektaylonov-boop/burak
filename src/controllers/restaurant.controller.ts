@@ -15,15 +15,6 @@ restauntController.goHome = (req: Request, res: Response) => {
 	}
 }
 
-restauntController.getLogin = (req: Request, res: Response) => {
-	try {
-		console.log('Login Page')
-		res.send('Login Page')
-	} catch (err) {
-		console.log('Error, getLogin:', err)
-	}
-}
-
 restauntController.getSignup = (req: Request, res: Response) => {
 	try {
 		console.log('Signup Page')
@@ -33,19 +24,12 @@ restauntController.getSignup = (req: Request, res: Response) => {
 	}
 }
 
-restauntController.processLogin = async (req: Request, res: Response) => {
+restauntController.getLogin = (req: Request, res: Response) => {
 	try {
-		console.log('process Login')
-		console.log('body:', req.body)
-		const input: LoginInput = req.body
-
-		const memberService = new MemberService()
-		const result = await memberService.processLogin(input)
-
-		res.send(result)
+		console.log('Login Page')
+		res.send('Login Page')
 	} catch (err) {
-		console.log('Error, processLogin:', err)
-		res.send(err)
+		console.log('Error, getLogin:', err)
 	}
 }
 
@@ -59,10 +43,28 @@ restauntController.processSignup = async (req: Request, res: Response) => {
 
 		const memberService = new MemberService()
 		const result = await memberService.processSignup(newMember)
+		//TODO: SESSIONS AUTHENTICATION
 
 		res.send(result)
 	} catch (err) {
 		console.log('Error, processSignup:', err)
+		res.send(err)
+	}
+}
+
+restauntController.processLogin = async (req: Request, res: Response) => {
+	try {
+		console.log('process Login')
+		console.log('body:', req.body)
+		const input: LoginInput = req.body
+
+		const memberService = new MemberService()
+		const result = await memberService.processLogin(input)
+		//TODO: SESSIONS AUTHENTICATION
+
+		res.send(result)
+	} catch (err) {
+		console.log('Error, processLogin:', err)
 		res.send(err)
 	}
 }
