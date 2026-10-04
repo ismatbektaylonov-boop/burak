@@ -1,3 +1,19 @@
+/**TASK R:
+
+Shunday function yozing, u string parametrga ega bo'lsin.
+Agar argument sifatida berilayotgan string, "1 + 2" bo'lsa,
+string ichidagi sonlarin yig'indisni hisoblab, number holatida qaytarsin
+
+MASALAN: calculate("1 + 3"); return 4;
+1 + 3 = 4, shu sababli 4 natijani qaytarmoqda. */
+
+function calculate(expr: string): number {
+	return new Function(`return ${expr}`)()
+}
+
+console.log(calculate('1+3')) // 4
+console.log(calculate('1+3+4')) // 8
+
 /**TASK Q:
 
 Shunday function yozing, u 2 ta parametrga ega bo'lib
@@ -8,12 +24,12 @@ biror bir propertysiga mos kelsa, 'true', aks holda mos kelmasa 'false' qaytarsi
 MASALAN: hasProperty({ name: "BMW", model: "M3" }, "model"); return true;
 Ushbu misolda, 'model' string, objectning propertysiga mos kelganligi uchun 'true' natijani qaytarmoqda */
 
-function hasProperty(obj: any, prop: string): boolean {
-	return prop in obj
-}
+// function hasProperty(obj: any, prop: string): boolean {
+// 	return prop in obj
+// }
 
-console.log(hasProperty({ name: 'BMW', model: 'M3' }, 'model')) // true
-console.log(hasProperty({ name: 'BMW' }, 'age')) // false
+// console.log(hasProperty({ name: 'BMW', model: 'M3' }, 'model')) // true
+// console.log(hasProperty({ name: 'BMW' }, 'age')) // false
 /** 
  Traditional FD => BSSR(Adminka) => EJS
  Modern FD 			=> SPA(user) => React

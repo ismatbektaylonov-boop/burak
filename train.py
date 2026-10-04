@@ -1,3 +1,22 @@
+# TASK R
+
+def calculate(str):
+    a = eval(str)
+    print(a)
+
+calculate("1+3")
+calculate("1+3+4")
+
+# TASK Q:
+
+def hasProperty(obj, prop):
+
+    return prop in obj
+
+
+print(hasProperty({"name": "BMW"}, "name"))  # True
+print(hasProperty({"name": "BMW"}, "age"))   # False 
+
 '''
 TASK M: 
 
@@ -22,17 +41,17 @@ Shunday function yozing, u string qabul qilsin va string palindrom yani togri oq
 
 MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;'''
 
-def palindromCheck(str):
-    a = str[:len(str)]
-    b = a[::-1]
+# def palindromCheck(str):
+#     a = str[:len(str)]
+#     b = a[::-1]
 
-    # print(a, b)
+#     # print(a, b)
 
-    if a == b:
-        return True
-    else:
-        return False
+#     if a == b:
+#         return True
+#     else:
+#         return False
 
 
-print(palindromCheck("dad")) # True
-print(palindromCheck("son")) # False
+# print(palindromCheck("dad")) # True
+# print(palindromCheck("son")) # False
