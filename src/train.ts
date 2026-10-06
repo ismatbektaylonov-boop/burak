@@ -1,3 +1,23 @@
+/**TASK S:
+
+Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
+MASALAN: missingNumber([3, 0, 1]) return 2 */
+
+function missingNumber(arr: number[]): number {
+	let sum = 0
+	let sum2 = arr.length // n dan boshlaymiz
+
+	for (let i = 0; i < arr.length; i++) {
+		sum += arr[i]
+		sum2 += i
+	}
+
+	return sum2 - sum
+}
+
+console.log(missingNumber([0, 1, 3, 2, 5])) // 4
+// console.log(missingNumber([3, 0, 1])) // 2
+
 /**TASK R:
 
 Shunday function yozing, u string parametrga ega bo'lsin.
@@ -7,12 +27,12 @@ string ichidagi sonlarin yig'indisni hisoblab, number holatida qaytarsin
 MASALAN: calculate("1 + 3"); return 4;
 1 + 3 = 4, shu sababli 4 natijani qaytarmoqda. */
 
-function calculate(expr: string): number {
-	return new Function(`return ${expr}`)()
-}
+// function calculate(expr: string): number {
+// 	return new Function(`return ${expr}`)()
+// }
 
-console.log(calculate('1+3')) // 4
-console.log(calculate('1+3+4')) // 8
+// console.log(calculate('1+3')) // 4
+// console.log(calculate('1+3+4')) // 8
 
 /**TASK Q:
 
@@ -89,8 +109,7 @@ GraphQL API
 ...
 */
 
-/*
-TASK N:
+/*TASK N:
 
 Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
 

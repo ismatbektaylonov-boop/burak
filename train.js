@@ -1,26 +1,45 @@
-/*
-TASK N:
+/**TASK S:
+
+Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
+MASALAN: missingNumber([3, 0, 1]) return 2 */
+
+function missingNumber(arr) {
+	let sum = 0
+	let sum2 = arr.length // n dan boshlaymiz
+
+	for (let i = 0; i < arr.length; i++) {
+		sum += arr[i]
+		sum2 += i
+	}
+
+	return sum2 - sum
+}
+
+console.log(missingNumber([3, 0, 1])) // 2
+// console.log(missingNumber([0, 1, 3, 2, 5])) // 4
+
+/* TASK N:
 
 Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
 
 MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false; 
 */
 
-function palindromCheck(str) {
-	const a = str.slice(0, str.length)
-	const b = a.split('').reverse().join('')
+// function palindromCheck(str) {
+// 	const a = str.slice(0, str.length)
+// 	const b = a.split('').reverse().join('')
 
-	// console.log(a, b);
+// 	// console.log(a, b);
 
-	if (a === b) {
-		return true
-	} else {
-		return false
-	}
-}
+// 	if (a === b) {
+// 		return true
+// 	} else {
+// 		return false
+// 	}
+// }
 
-console.log(palindromCheck('dad')) // true
-console.log(palindromCheck('son')) // false
+// console.log(palindromCheck('dad')) // true
+// console.log(palindromCheck('son')) // false
 
 // function palindromCheck(str) {
 //   const reversedStr = str.split("").reverse().join("");
@@ -30,8 +49,7 @@ console.log(palindromCheck('son')) // false
 // console.log(palindromCheck("dad")); // true
 // console.log(palindromCheck("son")); // false
 
-/*
-TASK M: 
+/* TASK M: 
 
 Shunday function yozing, u raqamlardan tashkil topgan array qabul qilsin va array ichidagi har bir raqam uchun raqamni ozi va hamda osha raqamni kvadratidan tashkil topgan object hosil qilib, hosil bolgan objectlarni array ichida qaytarsin.
 MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
