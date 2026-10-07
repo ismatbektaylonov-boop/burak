@@ -7,6 +7,7 @@ import routerAdmin from './routerAdmin'
 
 import ConnectMongoDB from 'connect-mongodb-session'
 import session from 'express-session'
+import { T } from './libs/types/common'
 
 const MongoDBStore = ConnectMongoDB(session)
 const store = new MongoDBStore({
@@ -33,6 +34,16 @@ app.use(
 		saveUninitialized: true,
 	}),
 )
+
+app.use(function (req, res, next) {
+	console.log('req.session', req.session)
+	const sessionInstance = req.session as T
+	console.log('sessionInstance', sessionInstance)
+	console.log('res.locals.member1', res.locals.member)
+	res.locals.member = sessionInstance.member
+	console.log('res.locals.member2', res.locals.member)
+	next()
+})
 
 /** 3–VIEWS **/
 app.set('views', path.join(__dirname, 'views'))
