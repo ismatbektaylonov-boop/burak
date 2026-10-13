@@ -1,3 +1,28 @@
+/**TASK U
+
+Shunday function tuzing, uni number parametri bo'lsin.
+Va bu function berilgan parametrgacha, 0'dan boshlab
+oraliqda nechta toq sonlar borligini aniqlab return qilsi.
+
+MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
+
+Yuqoridagi birinchi misolda, argument sifatida, 9 berilmoqda.
+Va 0'dan boshlab sanaganda 9'gacha 4'ta toq son mavjud. 
+Keyingi namunada ham xuddi shunday xolat takrorlanmoqda. */
+
+function sumOdds(num: number): number {
+	let count = 0
+	for (let i = 0; i < num; i++) {
+		if (i % 2 !== 0) {
+			count++
+		}
+	}
+	return count
+}
+
+console.log(sumOdds(9)) // 4
+console.log(sumOdds(11)) // 5
+
 /**TASK T
 
 Shunday function tuzing, u sonlardan tashkil topgan 2'ta array qabul qilsin.
@@ -6,29 +31,29 @@ Va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin.
 MASALAN: mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]); return [0, 3, 4, 4, 6, 30, 31];
 
 Yuqoridagi misolda, ikkala arrayни birlashtirib, tartib raqam bo'yicha tartiblab qaytarmoqda. */
-function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
-	let result: number[] = []
-	let i = 0
-	let j = 0
+// function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+// 	let result: number[] = []
+// 	let i = 0
+// 	let j = 0
 
-	while (i < arr1.length && j < arr2.length) {
-		if (arr1[i] < arr2[j]) {
-			result.push(arr1[i])
-			i++
-		} else {
-			result.push(arr2[j])
-			j++
-		}
-	}
+// 	while (i < arr1.length && j < arr2.length) {
+// 		if (arr1[i] < arr2[j]) {
+// 			result.push(arr1[i])
+// 			i++
+// 		} else {
+// 			result.push(arr2[j])
+// 			j++
+// 		}
+// 	}
 
-	// Qolgan elementlarni qo'shish
-	result = result.concat(arr1.slice(i))
-	result = result.concat(arr2.slice(j))
+// 	// Qolgan elementlarni qo'shish
+// 	result = result.concat(arr1.slice(i))
+// 	result = result.concat(arr2.slice(j))
 
-	return result
-}
+// 	return result
+// }
 
-console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]))
+// console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]))
 
 /**TASK S:
 
