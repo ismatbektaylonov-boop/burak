@@ -19,6 +19,7 @@ export enum Message {
 	NO_MEMBER_NICK = 'No member with that memberNick!',
 	WRONG_PASSWORD = 'Wrong password, please try again!',
 
+	BLOCKED_USER = 'You have been blocked, contact to admin',
 	NOT_AUTHENTICATED = 'You are not authenticated,Please login first',
 }
 
