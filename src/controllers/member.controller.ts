@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
-import Errors from '../libs/Errors'
+import { AUTH_TIMER } from '../libs/config'
+import Errors, { HttpCode } from '../libs/Errors'
 import { T } from '../libs/types/common'
 import { LoginInput, Member, MemberInput } from '../libs/types/member'
 import AuthService from '../models/Auth.service'
@@ -20,7 +21,12 @@ memberController.signup = async (req: Request, res: Response) => {
 		console.log('SIGNUPtoken==>', token)
 		console.log('======================================')
 
-		res.json({ member: result })
+		res.cookie('accessToken', token, {
+			maxAge: AUTH_TIMER * 3600 * 1000,
+			httpOnly: false,
+		})
+
+		res.status(HttpCode.CREATED).json({ member: result, accessToken: token })
 	} catch (err) {
 		console.log('Error, signup:', err)
 		if (err instanceof Errors) res.status(err.code).json({ err })
@@ -38,7 +44,12 @@ memberController.login = async (req: Request, res: Response) => {
 		console.log('token==>', token)
 		console.log('======================================')
 
-		res.json({ member: result })
+		res.cookie('accessToken', token, {
+			maxAge: AUTH_TIMER * 3600 * 1000,
+			httpOnly: false,
+		})
+
+		res.status(HttpCode.OK).json({ member: result, accessToken: token })
 	} catch (err) {
 		console.log('Error, login:', err)
 		if (err instanceof Errors) res.status(err.code).json({ err })

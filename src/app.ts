@@ -6,6 +6,7 @@ import router from './router'
 import routerAdmin from './routerAdmin'
 
 import ConnectMongoDB from 'connect-mongodb-session'
+import cookieParser from 'cookie-parser'
 import session from 'express-session'
 import { T } from './libs/types/common'
 
@@ -20,6 +21,7 @@ const app = express()
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(cookieParser())
 app.use(morgan(MORGAN_FORMAT))
 
 /** 2–SESSIONS **/
