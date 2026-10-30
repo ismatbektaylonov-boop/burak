@@ -2,18 +2,23 @@ import { Request, Response } from 'express'
 import Errors from '../libs/Errors'
 import { T } from '../libs/types/common'
 import { LoginInput, Member, MemberInput } from '../libs/types/member'
+import AuthService from '../models/Auth.service'
 import MemberService from '../models/Member.service'
 
 //REACT
 const memberService = new MemberService()
+const authService = new AuthService()
 
 const memberController: T = {}
 memberController.signup = async (req: Request, res: Response) => {
 	try {
 		console.log('signup')
 		const input: MemberInput = req.body,
-			result: Member = await memberService.signup(input)
-		//TODO: TOKENS
+			result: Member = await memberService.signup(input),
+			token = await authService.createToken(result)
+		console.log('======================================')
+		console.log('SIGNUPtoken==>', token)
+		console.log('======================================')
 
 		res.json({ member: result })
 	} catch (err) {
@@ -27,8 +32,11 @@ memberController.login = async (req: Request, res: Response) => {
 	try {
 		console.log('login')
 		const input: LoginInput = req.body,
-			result = await memberService.login(input)
-		//TODO: TOKENS
+			result = await memberService.login(input),
+			token = await authService.createToken(result)
+		console.log('======================================')
+		console.log('token==>', token)
+		console.log('======================================')
 
 		res.json({ member: result })
 	} catch (err) {
