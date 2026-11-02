@@ -18,5 +18,6 @@ router.post(
 	makeUploader('members').single('memberImage'),
 	memberController.updateMember,
 )
+router.get('/member/top-users', memberController.getTopUsers)
 
 export default router
