@@ -1,5 +1,6 @@
 import express from 'express'
 import memberController from './controllers/member.controller'
+import productController from './controllers/product.controller'
 import makeUploader from './libs/utils/uploader'
 const router = express.Router()
 
@@ -20,5 +21,8 @@ router.post(
 	memberController.updateMember,
 )
 router.get('/member/top-users', memberController.getTopUsers)
+
+/** Product */
+router.get('/product/all', productController.getProducts)
 
 export default router
