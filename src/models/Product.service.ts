@@ -1,3 +1,4 @@
+import { Types } from 'mongoose'
 import { shapeIntMongooseObjectId } from '../libs/config'
 import { ProductStatus } from '../libs/enums/product.enum'
 import Errors, { HttpCode, Message } from '../libs/Errors'
@@ -44,6 +45,23 @@ class ProductService {
 		if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND)
 
 		return result
+	}
+
+	public async getProduct(
+		memberId: Types.ObjectId | null,
+		id: string,
+	): Promise<Product> {
+		const productId = shapeIntMongooseObjectId(id)
+
+		let result = await this.productModel
+			.findOne({ _id: productId, productStatus: ProductStatus.PROCESS })
+			.exec()
+
+		if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND)
+
+		//if authenticated and at the first time ==> view add
+
+		return result as Product
 	}
 
 	/* SSR */
