@@ -83,7 +83,7 @@ class ProductService {
 				await this.viewService.insertMemberView(input)
 
 				// Increase count
-				const result = await this.productModel
+				result = await this.productModel
 					.findByIdAndUpdate(
 						productId,
 						{ $inc: { productViews: +1 } },
