@@ -1,5 +1,6 @@
 import express from 'express'
 import memberController from './controllers/member.controller'
+import orderController from './controllers/order.controller'
 import productController from './controllers/product.controller'
 import makeUploader from './libs/utils/uploader'
 const router = express.Router()
@@ -28,6 +29,13 @@ router.get(
 	'/product/:id',
 	memberController.retrieveAuth,
 	productController.getProduct,
+)
+
+/** Oreder */
+router.post(
+	'/order/create',
+	memberController.verifyAuth,
+	orderController.createOrder,
 )
 
 export default router
